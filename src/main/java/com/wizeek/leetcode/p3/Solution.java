@@ -29,6 +29,9 @@ public class Solution {
             for (int i = 0; i < indexes.size() - 1; i++) {
                 int start = indexes.get(i);
                 int end = indexes.get(i + 1);
+                if (end - start <= max) {
+                    continue;
+                }
                 int j = start + 1;
                 while (j < end) {
                     char c = array[j];
