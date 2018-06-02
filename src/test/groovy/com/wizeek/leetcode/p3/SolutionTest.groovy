@@ -29,4 +29,9 @@ class SolutionTest {
     void test3() {
         assert solution.lengthOfLongestSubstring('pwwkew') == 3 // wke
     }
+
+    @Test
+    void test4() {
+        assert solution.lengthOfLongestSubstring('abcabcdb') == 4 // abcd
+    }
 }
