@@ -8,11 +8,11 @@ import org.junit.Test
  */
 class Solution2018Test {
 
-    Solution2018 solution
+    Solution2018_3 solution
 
     @Before
     void setUp() {
-        solution = new Solution2018()
+        solution = new Solution2018_3()
     }
 
     @Test
@@ -115,6 +115,22 @@ class Solution2018Test {
                 next = new ListNode(4)
                 it
             }
+            it
+        }
+    }
+
+    @Test
+    void test6() {
+        def list1 = new ListNode(1).with {
+            next = new ListNode(8)
+            it
+        }
+        def list2 = new ListNode(0)
+
+        def result = solution.addTwoNumbers(list1, list2)
+
+        assert result == new ListNode(1).with {
+            next = new ListNode(8)
             it
         }
     }
