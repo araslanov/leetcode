@@ -1,7 +1,5 @@
 package com.wizeek.leetcode.p2;
 
-import groovy.transform.EqualsAndHashCode;
-
 /**
  * Created by Artur on 6/2/2018.
  */
@@ -26,5 +24,10 @@ public class ListNode {
             return true;
         }
         return false;
+    }
+
+    @Override
+    public String toString() {
+        return "{val = " + val + ", next = " + (next == null ? "null" : next.toString() + "}");
     }
 }
