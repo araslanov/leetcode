@@ -6,7 +6,7 @@ import org.junit.Test
 /**
  * Created by Artur on 6/2/2018.
  */
-class Solution2018Test {
+class SolutionTest {
 
     Solution2018 solution
 
