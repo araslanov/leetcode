@@ -8,11 +8,11 @@ import org.junit.Test
  */
 class SolutionTest {
 
-    Solution3 solution
+    Solution4 solution
 
     @Before
     void setUp() {
-        solution = new Solution3()
+        solution = new Solution4()
     }
 
     @Test
