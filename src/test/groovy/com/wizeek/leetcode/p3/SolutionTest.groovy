@@ -8,11 +8,11 @@ import org.junit.Test
  */
 class SolutionTest {
 
-    Solution2 solution
+    Solution3 solution
 
     @Before
     void setUp() {
-        solution = new Solution2()
+        solution = new Solution3()
     }
 
     @Test
@@ -43,5 +43,10 @@ class SolutionTest {
     @Test
     void test6() {
         assert solution.lengthOfLongestSubstring('c') == 1
+    }
+
+    @Test
+    void test7() {
+        assert solution.lengthOfLongestSubstring('abc') == 3
     }
 }
