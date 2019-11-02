@@ -20,10 +20,20 @@ public class ListNode {
             return false;
         }
         ListNode casted = (ListNode) o;
-        if (casted.val == val && (casted.next == null || casted.next.equals(next))) {
-            return true;
+        if (casted.val != val) {
+            return false;
         }
-        return false;
+        if (casted.next == null) {
+            if (next == null) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        if (next == null) {
+            return false;
+        }
+        return casted.next.equals(next);
     }
 
     @Override
