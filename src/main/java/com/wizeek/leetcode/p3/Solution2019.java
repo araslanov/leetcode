@@ -16,6 +16,7 @@ public class Solution2019 {
                 if (currentLength > max) {
                     max = currentLength;
                 }
+                currentCharMap.entrySet().removeIf(entry -> entry.getValue() < existingIndex);
             }
             currentCharMap.put(c, i);
         }
