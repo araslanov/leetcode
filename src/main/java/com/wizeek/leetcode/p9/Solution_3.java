@@ -1,0 +1,27 @@
+package com.wizeek.leetcode.p9;
+
+/**
+ * Reversing half
+ */
+public class Solution_3 {
+    public boolean isPalindrome(int x) {
+        if (x < 0) {
+            return false;
+        }
+        if (x < 10) {
+            return true;
+        }
+        if (x % 10 == 0) {
+            return false;
+        }
+
+        int reversed = 0;
+
+        while (x > reversed) {
+            reversed = 10 * reversed + x % 10;
+            x /= 10;
+        }
+
+        return x == reversed || x == reversed / 10;
+    }
+}
