@@ -33,4 +33,14 @@ public class Solution2Test {
     public void test4() {
         assertEquals(0, solution.getMaxProfit(new int[]{}));
     }
+
+    @Test
+    public void test5() {
+        assertEquals(7, solution.getMaxProfit(new int[]{8, 6, 2, 5, 4, 1, 8, 3, 7}));
+    }
+
+    @Test
+    public void test6() {
+        assertEquals(4, solution.getMaxProfit(new int[]{1, 2, 3, 4, 5}));
+    }
 }

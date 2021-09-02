@@ -2,38 +2,21 @@ package com.wizeek.leetcode.p121;
 
 public class Solution2 {
     public int getMaxProfit(int[] prices) {
-        if (prices.length < 2) {
-            return 0;
-        }
-        if (prices.length == 2) {
-            int profit = prices[1] - prices[0];
-            if (profit > 0) {
-                return profit;
-            } else {
-                return 0;
-            }
-        }
-        int maxProfit = 0;
-        int left = 0;
-        int right = prices.length - 1;
-        do {
-            int profit = prices[left] - prices[right];
-            if (profit > maxProfit) {
-                maxProfit = profit;
-            }
-            if (right - left > 1) {
-                profit = prices[left + 1] - prices[right];
-                if (profit > maxProfit) {
-                    maxProfit = profit;
-                }
-                profit = prices[left] - prices[right - 1];
-                if (profit > maxProfit) {
-                    maxProfit = profit;
+        int currentMin = Integer.MAX_VALUE;
+        int currentMax = 0;
+        int currentMaxProfit = 0;
+        for (int i = 0; i < prices.length; i++) {
+            if (prices[i] < currentMin) {
+                currentMin = prices[i];
+                currentMax = prices[i];
+            } else if (prices[i] > currentMax) {
+                currentMax = prices[i];
+                int currentProfit = currentMax - currentMin;
+                if (currentProfit > currentMaxProfit) {
+                    currentMaxProfit = currentProfit;
                 }
             }
-            left++;
-            right--;
-        } while (right - left > 2);
-        return maxProfit;
+        }
+        return currentMaxProfit;
     }
 }
