@@ -22,7 +22,7 @@ public class Solution {
                 }
             }
         }
-        return true;
+        return stack.isEmpty();
     }
 
     private static boolean isOpeningParentheses(char c) {

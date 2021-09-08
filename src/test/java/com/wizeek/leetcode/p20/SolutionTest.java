@@ -43,4 +43,9 @@ public class SolutionTest {
     public void test6() {
         assertEquals(false, solution.isValid(")"));
     }
+
+    @Test
+    public void test7() {
+        assertEquals(false, solution.isValid("["));
+    }
 }
