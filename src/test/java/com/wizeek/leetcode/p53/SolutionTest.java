@@ -33,4 +33,9 @@ public class SolutionTest {
     public void test4() {
         assertEquals(-1, solution.maxSubArray(new int[]{-1}));
     }
+
+    @Test
+    public void test5() {
+        assertEquals(-2, solution.maxSubArray(new int[]{-2, -5}));
+    }
 }
