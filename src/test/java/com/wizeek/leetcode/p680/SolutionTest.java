@@ -48,4 +48,9 @@ public class SolutionTest {
     public void test7() {
         assertEquals(true, solution.validPalindrome("ab"));
     }
+
+    @Test
+    public void test8() {
+        assertEquals(true, solution.validPalindrome("lcupuuffuupucul"));
+    }
 }
