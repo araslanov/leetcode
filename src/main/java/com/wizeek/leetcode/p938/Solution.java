@@ -7,11 +7,15 @@ class Solution {
         }
         int sum = 0;
         int currentVal = root.val;
-        if (currentVal >= low && currentVal <= high) {
+        if (currentVal < low) {
+            sum += rangeSumBST(root.right, low, high);
+        } else if (currentVal > high) {
+            sum += rangeSumBST(root.left, low, high);
+        } else {
             sum = currentVal;
+            sum += rangeSumBST(root.left, low, high);
+            sum += rangeSumBST(root.right, low, high);
         }
-        sum += rangeSumBST(root.left, low, high);
-        sum += rangeSumBST(root.right, low, high);
         return sum;
     }
 
