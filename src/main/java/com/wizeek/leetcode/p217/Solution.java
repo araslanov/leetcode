@@ -1,16 +1,16 @@
 package com.wizeek.leetcode.p217;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Solution {
     public boolean containsDuplicate(int[] nums) {
-        Map<Integer, Boolean> numMap = new HashMap<>();
+        Set<Integer> set = new HashSet<>(nums.length);
         for (int num : nums) {
-            if (numMap.containsKey(num)) {
+            if (set.contains(num)) {
                 return true;
             } else {
-                numMap.put(num, true);
+                set.add(num);
             }
         }
         return false;
