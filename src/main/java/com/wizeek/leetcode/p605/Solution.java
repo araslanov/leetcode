@@ -11,6 +11,9 @@ public class Solution {
             }
             if ((i - 1 < 0 || flowerbed[i - 1] == 0) && (i + 1 >= flowerbed.length || flowerbed[i + 1] == 0)) {
                 maxNewPlants++;
+                if (maxNewPlants == n) {
+                    return true;
+                }
                 i += 2;
             } else {
                 i++;
