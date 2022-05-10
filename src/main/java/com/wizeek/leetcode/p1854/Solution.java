@@ -1,11 +1,11 @@
 package com.wizeek.leetcode.p1854;
 
+import java.util.HashMap;
 import java.util.Map;
-import java.util.TreeMap;
 
 public class Solution {
     public int maximumPopulation(int[][] logs) {
-        Map<Integer, Integer> populationByYear = new TreeMap<>();
+        Map<Integer, Integer> populationByYear = new HashMap<>();
         int maxPop = 0;
         int firstYearOfMaxPop = 0;
         for (int[] log : logs) {
