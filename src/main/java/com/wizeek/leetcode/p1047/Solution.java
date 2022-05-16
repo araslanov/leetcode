@@ -6,11 +6,11 @@ public class Solution {
             return s;
         }
         Node head = new Node();
-        head.value = 0;
+        head.value = s.charAt(0);
         Node tail = head;
         for (int i = 1; i < s.length(); i++) {
             Node node = new Node();
-            node.value = i;
+            node.value = s.charAt(i);
             node.previous = tail;
             tail.next = node;
             tail = node;
@@ -18,7 +18,7 @@ public class Solution {
         Node current = head;
         while (current != null && current.next != null) {
             Node next = current.next;
-            if (s.charAt(current.value) == s.charAt(next.value)) {
+            if (current.value == next.value) {
                 if (current.previous == null) {
                     current = next.next;
                     if (current != null) {
@@ -39,14 +39,14 @@ public class Solution {
         current = head;
         StringBuilder result = new StringBuilder();
         while (current != null) {
-            result.append(s.charAt(current.value));
+            result.append(current.value);
             current = current.next;
         }
         return result.toString();
     }
 
     private static class Node {
-        int value;
+        char value;
         Node previous;
         Node next;
     }
