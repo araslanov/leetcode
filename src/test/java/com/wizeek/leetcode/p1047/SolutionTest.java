@@ -39,4 +39,9 @@ public class SolutionTest {
         assertEquals("ibfjcdidiaidchakchchcahabhibdcejkdkfbecdjhajbkfebebfea",
                 solution.removeDuplicates("ibfjcaffccadidiaidchakchchcahabhibdcejkdkfbaeeaecdjhajbkfebebfea"));
     }
+
+    @Test
+    public void test6() {
+        assertEquals("ba", solution.removeDuplicates("aababaab"));
+    }
 }
