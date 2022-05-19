@@ -1,19 +1,20 @@
 package com.wizeek.leetcode.p169;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class Solution {
     public int majorityElement(int[] nums) {
         int n = nums.length;
-        Map<Integer, Integer> countMap = new HashMap<>();
-        for (int num : nums) {
-            int newCount = countMap.getOrDefault(num, 0) + 1;
-            if (newCount > n / 2) {
-                return num;
+        int candidate = nums[0];
+        int count = 1;
+        for (int i = 1; i < n; i++) {
+            if (count == 0) {
+                candidate = nums[i];
             }
-            countMap.put(num, newCount);
+            if (nums[i] == candidate) {
+                count++;
+            } else {
+                count--;
+            }
         }
-        return 0;
+        return candidate;
     }
 }
