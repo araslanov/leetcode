@@ -26,4 +26,17 @@ public class Solution101Test {
 
         assertEquals(true, solution.isSymmetric(root));
     }
+
+    @Test
+    public void test2() {
+        Solution101.TreeNode root = new Solution101.TreeNode(9);
+        root.left = new Solution101.TreeNode(-42);
+        root.left.right = new Solution101.TreeNode(76);
+        root.left.right.right = new Solution101.TreeNode(13);
+        root.right = new Solution101.TreeNode(-42);
+        root.right.left = new Solution101.TreeNode(76);
+        root.right.left.right = new Solution101.TreeNode(13);
+
+        assertEquals(false, solution.isSymmetric(root));
+    }
 }
