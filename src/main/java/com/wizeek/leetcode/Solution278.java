@@ -11,7 +11,7 @@ public class Solution278 {
         int left = 1;
         int right = n;
         while (left < right) {
-            int middle = (int) (((long) left + (long) right) / 2);
+            int middle = left + (right - left) / 2;
             boolean isBad = isBadVersion(middle);
             if (isBad) {
                 right = middle;
