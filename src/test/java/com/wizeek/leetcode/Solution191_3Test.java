@@ -5,13 +5,13 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class Solution191_2Test {
+public class Solution191_3Test {
 
-    private Solution191_2 solution;
+    private Solution191_3 solution;
 
     @Before
     public void setUp() {
-        solution = new Solution191_2();
+        solution = new Solution191_3();
     }
 
     @Test
