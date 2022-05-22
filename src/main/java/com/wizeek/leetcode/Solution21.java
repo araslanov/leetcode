@@ -2,52 +2,21 @@ package com.wizeek.leetcode;
 
 public class Solution21 {
     public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
-        ListNode result = null;
-        ListNode previous = null;
-        while (list1 != null || list2 != null) {
-            if (list1 == null) {
-                if (previous == null) {
-                    result = list2;
-                    previous = list2;
-                } else {
-                    previous.next = list2;
-                    previous = list2;
-                }
-                list2 = list2.next;
-                break;
-            }
-            if (list2 == null) {
-                if (previous == null) {
-                    result = list1;
-                    previous = list1;
-                } else {
-                    previous.next = list1;
-                    previous = list1;
-                }
-                list1 = list1.next;
-                break;
-            }
+        ListNode result = new ListNode(-1);
+        ListNode previous = result;
+        while (list1 != null && list2 != null) {
             if (list1.val <= list2.val) {
-                if (previous == null) {
-                    result = list1;
-                    previous = list1;
-                } else {
-                    previous.next = list1;
-                    previous = list1;
-                }
+                previous.next = list1;
+                previous = list1;
                 list1 = list1.next;
             } else {
-                if (previous == null) {
-                    result = list2;
-                    previous = list2;
-                } else {
-                    previous.next = list2;
-                    previous = list2;
-                }
+                previous.next = list2;
+                previous = list2;
                 list2 = list2.next;
             }
         }
-        return result;
+        previous.next = list1 == null ? list2 : list1;
+        return result.next;
     }
 
     public static class ListNode {
