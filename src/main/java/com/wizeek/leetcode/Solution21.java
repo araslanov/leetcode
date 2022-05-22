@@ -14,7 +14,7 @@ public class Solution21 {
                     previous = list2;
                 }
                 list2 = list2.next;
-                continue;
+                break;
             }
             if (list2 == null) {
                 if (previous == null) {
@@ -25,7 +25,7 @@ public class Solution21 {
                     previous = list1;
                 }
                 list1 = list1.next;
-                continue;
+                break;
             }
             if (list1.val <= list2.val) {
                 if (previous == null) {
