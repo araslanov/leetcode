@@ -5,13 +5,13 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class Solution716Test {
+public class Solution716_2Test {
 
-    private Solution716 stack;
+    private Solution716_2 stack;
 
     @Before
     public void setUp() {
-        stack = new Solution716();
+        stack = new Solution716_2();
     }
 
     @Test
