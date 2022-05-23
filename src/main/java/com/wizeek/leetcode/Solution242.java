@@ -15,11 +15,6 @@ public class Solution242 {
                 return false;
             }
         }
-        for (int i : count) {
-            if (i > 0) {
-                return false;
-            }
-        }
         return true;
     }
 }
