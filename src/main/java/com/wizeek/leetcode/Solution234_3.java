@@ -1,25 +1,41 @@
 package com.wizeek.leetcode;
 
 public class Solution234_3 {
-    private ListNode left;
-
     public boolean isPalindrome(ListNode head) {
-        left = head;
-        return isPalindromeRecursive(head);
+        ListNode slow = head;
+        ListNode fast = head;
+        ListNode secondHalf;
+        while (fast.next != null && fast.next.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        if (fast.next == null) {
+            secondHalf = slow;
+        } else {
+            secondHalf = slow.next;
+            slow.next = null;
+        }
+        ListNode reverseHead = reverseList(secondHalf);
+        while (head != null && reverseHead != null) {
+            if (head.val != reverseHead.val) {
+                return false;
+            }
+            head = head.next;
+            reverseHead = reverseHead.next;
+        }
+        return true;
     }
 
-    private boolean isPalindromeRecursive(ListNode node) {
-        if (node == null) {
-            return true;
+    private ListNode reverseList(ListNode head) {
+        ListNode previous = null;
+        ListNode temp = null;
+        while (head != null) {
+            temp = head.next;
+            head.next = previous;
+            previous = head;
+            head = temp;
         }
-        if (!isPalindromeRecursive(node.next)) {
-            return false;
-        }
-        if (left.val != node.val) {
-            return false;
-        }
-        left = left.next;
-        return true;
+        return previous;
     }
 
     public static class ListNode {
