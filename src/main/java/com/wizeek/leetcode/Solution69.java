@@ -2,32 +2,25 @@ package com.wizeek.leetcode;
 
 public class Solution69 {
     public int mySqrt(int x) {
-        if (x == 0) {
-            return 0;
+        if (x < 2) {
+            return x;
         }
-        int n = 1;
-        while (n <= x / n) {
-            if (n == x / n) {
-                return n;
-            }
-            n *= 2;
-        }
-        return binarySearch(x, n);
+        return binarySearch(x);
     }
 
-    private int binarySearch(int x, int n) {
-        int left = n / 2;
-        int right = n;
-        while (left < right) {
+    private int binarySearch(int x) {
+        int left = 1;
+        int right = x / 2;
+        while (left <= right) {
             int middle = left + (right - left) / 2;
             if (middle == x / middle) {
                 return middle;
             } else if (middle < x / middle) {
                 left = middle + 1;
             } else {
-                right = middle;
+                right = middle - 1;
             }
         }
-        return left - 1;
+        return right;
     }
 }
