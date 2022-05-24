@@ -12,19 +12,14 @@ public class Solution228 {
         }
         int start = nums[0];
         for (int i = 1; i < n; i++) {
-            long current = (long) nums[i];
-            long previous = (long) nums[i - 1];
-            if (current - previous > 1) {
-                int range = (int) previous - start;
-                if (range > 0) {
-                    result.add(start + "->" + previous);
-                } else {
-                    result.add(start + "");
-                }
+            int current = nums[i];
+            int previous = nums[i - 1];
+            if (current > previous + 1) {
+                result.add(previous > start ? start + "->" + previous : start + "");
                 start = nums[i];
             }
         }
-        result.add(nums[n - 1] - start > 0 ? start + "->" + nums[n - 1] : start + "");
+        result.add(nums[n - 1] > start ? start + "->" + nums[n - 1] : start + "");
         return result;
     }
 }
