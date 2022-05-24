@@ -28,4 +28,14 @@ public class Solution69Test {
     public void test3() {
         assertEquals(46340, solution.mySqrt(2147395600));
     }
+
+    @Test
+    public void test4() {
+        assertEquals(0, solution.mySqrt(0));
+    }
+
+    @Test
+    public void test5() {
+        assertEquals(1, solution.mySqrt(2));
+    }
 }
