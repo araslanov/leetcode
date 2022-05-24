@@ -5,13 +5,8 @@ public class Solution1009_3 {
         if (n == 0) {
             return 1;
         }
-        int remaining = n;
-        int mask = 1;
-        while (remaining != 0) {
-            n ^= mask;
-            remaining >>= 1;
-            mask <<= 1;
-        }
-        return n;
+        int l = Integer.toBinaryString(n).length();
+        int mask = (1 << l) - 1;
+        return n ^ mask;
     }
 }
