@@ -11,15 +11,30 @@ public class Solution228 {
             return result;
         }
         int start = nums[0];
+        StringBuilder sb = new StringBuilder();
         for (int i = 1; i < n; i++) {
             int current = nums[i];
             int previous = nums[i - 1];
             if (current > previous + 1) {
-                result.add(previous > start ? start + "->" + previous : start + "");
+                if (previous > start) {
+                    sb = new StringBuilder();
+                    sb.append(start);
+                    sb.append("->");
+                    sb.append(previous);
+                    result.add(sb.toString());
+                } else {
+                    result.add(String.valueOf(start));
+                }
                 start = nums[i];
             }
         }
-        result.add(nums[n - 1] > start ? start + "->" + nums[n - 1] : start + "");
+        sb = new StringBuilder();
+        sb.append(start);
+        if (nums[n - 1] > start) {
+            sb.append("->");
+            sb.append(nums[n - 1]);
+        }
+        result.add(sb.toString());
         return result;
     }
 }
