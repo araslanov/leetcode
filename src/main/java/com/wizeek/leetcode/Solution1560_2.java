@@ -1,22 +1,27 @@
 package com.wizeek.leetcode;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
-import java.util.TreeSet;
 
 public class Solution1560_2 {
     public List<Integer> mostVisited(int n, int[] rounds) {
         int start = rounds[0];
         int last = rounds[rounds.length - 1];
-        TreeSet<Integer> most = new TreeSet<>();
-        most.add(start);
+        boolean[] visits = new boolean[n];
+        visits[start - 1] = true;
         while (last != start) {
-            most.add(last);
+            visits[last - 1] = true;
             last--;
             if (last == 0) {
                 last = n;
             }
         }
-        return new ArrayList<>(most);
+        List<Integer> result = new LinkedList<>();
+        for (int i = 0; i < n; i++) {
+            if (visits[i]) {
+                result.add(i + 1);
+            }
+        }
+        return result;
     }
 }
