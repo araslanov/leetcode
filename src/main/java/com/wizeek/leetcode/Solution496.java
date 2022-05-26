@@ -1,25 +1,27 @@
 package com.wizeek.leetcode;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Solution496 {
     public int[] nextGreaterElement(int[] nums1, int[] nums2) {
-        int n = nums1.length;
-        int m = nums2.length;
-        int[] result = new int[n];
-        for (int j = 0; j < n; j++) {
-            int num1 = nums1[j];
-            int i = 0;
-            while (num1 != nums2[i]) {
-                i++;
-            }
+        Map<Integer, Integer> pos2 = new HashMap<>(nums2.length);
+        for (int i = 0; i < nums2.length; i++) {
+            pos2.put(nums2[i], i);
+        }
+        int[] result = new int[nums1.length];
+        for (int i = 0; i < nums1.length; i++) {
+            int pos = pos2.get(nums1[i]);
             int greater = -1;
-            while (i + 1 < m) {
-                if (nums2[i + 1] > num1) {
-                    greater = nums2[i + 1];
+            int j = pos + 1;
+            while (j < nums2.length) {
+                if (nums2[j] > nums1[i]) {
+                    greater = nums2[j];
                     break;
                 }
-                i++;
+                j++;
             }
-            result[j] = greater;
+            result[i] = greater;
         }
         return result;
     }
