@@ -6,8 +6,6 @@ import static org.junit.Assert.assertEquals;
 
 public class Solution703Test {
 
-    private Solution703 solution;
-
     @Test
     public void test1() {
         Solution703 solution = new Solution703(3, new int[]{4, 5, 8, 2});
