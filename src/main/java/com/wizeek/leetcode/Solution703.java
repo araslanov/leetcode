@@ -9,7 +9,7 @@ public class Solution703 {
 
     public Solution703(int k, int[] nums) {
         this.k = k;
-        queue = new PriorityQueue<>(k + 1);
+        queue = new PriorityQueue<>(k);
         for (int num : nums) {
             add(num);
         }
