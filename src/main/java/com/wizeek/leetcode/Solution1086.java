@@ -1,6 +1,5 @@
 package com.wizeek.leetcode;
 
-import java.util.Comparator;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
@@ -12,10 +11,17 @@ public class Solution1086 {
             int id = pair[0] - 1;
             int score = pair[1];
             if (students[id] == null) {
-                students[id] = new PriorityQueue<>(Comparator.reverseOrder());
+                students[id] = new PriorityQueue<>();
                 studentCount++;
             }
-            students[id].offer(score);
+            if (students[id].size() < 5) {
+                students[id].offer(score);
+            } else {
+                if (score > students[id].peek()) {
+                    students[id].poll();
+                    students[id].offer(score);
+                }
+            }
         }
         int[][] result = new int[studentCount][2];
         int i = 0;
