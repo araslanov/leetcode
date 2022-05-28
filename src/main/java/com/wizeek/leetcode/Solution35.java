@@ -11,7 +11,7 @@ public class Solution35 {
         if (target > nums[right]) {
             return n;
         }
-        while (left < right) {
+        while (left <= right) {
             int mid = left + (right - left) / 2;
             if (nums[mid] == target) {
                 return mid;
@@ -21,6 +21,6 @@ public class Solution35 {
                 right = mid - 1;
             }
         }
-        return target <= nums[left] ? left : left + 1;
+        return left;
     }
 }
