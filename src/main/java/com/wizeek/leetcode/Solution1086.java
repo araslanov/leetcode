@@ -6,14 +6,13 @@ import java.util.Queue;
 
 public class Solution1086 {
     public int[][] highFive(int[][] items) {
-        int n = items.length;
         Queue<Integer>[] students = new PriorityQueue[1000];
         int studentCount = 0;
         for (int[] pair : items) {
             int id = pair[0] - 1;
             int score = pair[1];
             if (students[id] == null) {
-                students[id] = new PriorityQueue<>(5, Comparator.reverseOrder());
+                students[id] = new PriorityQueue<>(Comparator.reverseOrder());
                 studentCount++;
             }
             students[id].offer(score);
@@ -28,7 +27,6 @@ public class Solution1086 {
                 for (int j = 0; j < 5; j++) {
                     sum += scores.poll();
                 }
-                result[k] = new int[2];
                 result[k][0] = i + 1;
                 result[k][1] = sum / 5;
                 k++;
