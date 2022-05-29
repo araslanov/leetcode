@@ -15,6 +15,9 @@ public class Solution290 {
             String word = map.get(pattern.charAt(i));
             if (word == null) {
                 word = split[i];
+                if (map.containsValue(word)) {
+                    return false;
+                }
                 map.put(pattern.charAt(i), word);
             }
             if (!word.equals(split[i])) {

@@ -28,4 +28,9 @@ public class Solution290Test {
     public void test3() {
         assertEquals(false, solution.wordPattern("aaaa", "dog cat cat dog"));
     }
+
+    @Test
+    public void test4() {
+        assertEquals(false, solution.wordPattern("abba", "dog dog dog dog"));
+    }
 }
