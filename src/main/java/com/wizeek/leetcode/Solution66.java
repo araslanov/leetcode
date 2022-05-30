@@ -12,7 +12,6 @@ public class Solution66 {
         }
         if (carry > 0) {
             int[] result = new int[n + 1];
-            System.arraycopy(digits, 0, result, 1, n);
             result[0] = 1;
             return result;
         }
