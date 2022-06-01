@@ -4,13 +4,13 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class Solution146Test {
+public class Solution146_2Test {
 
-    private Solution146 solution;
+    private Solution146_2 solution;
 
     @Test
     public void test1() {
-        solution = new Solution146(2);
+        solution = new Solution146_2(2);
         solution.put(1, 1);
         solution.put(2, 2);
         assertEquals(1, solution.get(1));
@@ -24,7 +24,7 @@ public class Solution146Test {
 
     @Test
     public void test2() {
-        solution = new Solution146(2);
+        solution = new Solution146_2(2);
         solution.put(2, 1);
         solution.put(1, 1);
         solution.put(2, 3);
@@ -35,7 +35,7 @@ public class Solution146Test {
 
     @Test
     public void test3() {
-        solution = new Solution146(105);
+        solution = new Solution146_2(105);
         solution.put(33, 219);
         assertEquals(-1, solution.get(39));
         solution.put(96, 56);
