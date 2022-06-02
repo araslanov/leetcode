@@ -29,11 +29,6 @@ public class Solution56_2 {
                 start = -1;
             }
         }
-        int n = list.size();
-        int[][] result = new int[n][];
-        for (int i = 0; i < n; i++) {
-            result[i] = list.pollFirst();
-        }
-        return result;
+        return list.toArray(new int[list.size()][]);
     }
 }
