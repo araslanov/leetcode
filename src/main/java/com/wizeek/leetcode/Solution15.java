@@ -46,17 +46,8 @@ public class Solution15 {
         if (draft.isEmpty()) {
             return draft;
         }
-        Collections.sort(draft, (left, right) -> {
-            int diff = Integer.compare(left.get(0), right.get(0));
-            if (diff != 0) {
-                return diff;
-            }
-            diff = Integer.compare(left.get(1), right.get(1));
-            if (diff != 0) {
-                return diff;
-            }
-            return Integer.compare(left.get(2), right.get(2));
-        });
+        Collections.sort(draft, Comparator.comparingInt((List<Integer> list) -> list.get(0)).thenComparingInt(
+                list -> list.get(1)).thenComparingInt(list -> list.get(2)));
         result.add(draft.pollFirst());
         while (!draft.isEmpty()) {
             List<Integer> list = draft.pollFirst();
