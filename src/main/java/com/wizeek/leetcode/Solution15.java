@@ -1,10 +1,11 @@
 package com.wizeek.leetcode;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Solution15 {
     public List<List<Integer>> threeSum(int[] nums) {
-        LinkedList<List<Integer>> result = new LinkedList<>();
+        List<List<Integer>> result = new LinkedList<>();
         int n = nums.length;
         if (n < 3) {
             return result;
@@ -25,7 +26,7 @@ public class Solution15 {
                 }
             }
         }
-        LinkedList<List<Integer>> draft = new LinkedList<>();
+        Set<Triplet> draft = new HashSet<>();
         for (int i = 0; i < n; i++) {
             List<int[]> pairs = map.get(-nums[i]);
             if (pairs == null) {
@@ -35,30 +36,53 @@ public class Solution15 {
                 if (pair[0] == i || pair[1] == i) {
                     continue;
                 }
-                List<Integer> list = new ArrayList<>(3);
-                list.add(nums[i]);
-                list.add(nums[pair[0]]);
-                list.add(nums[pair[1]]);
-                Collections.sort(list);
-                draft.add(list);
+                draft.add(new Triplet(nums[i], nums[pair[0]], nums[pair[1]]));
             }
         }
-        if (draft.isEmpty()) {
-            return draft;
+        return draft.stream().map(triplet -> {
+            List<Integer> list = new ArrayList<>(3);
+            list.add(triplet.a);
+            list.add(triplet.b);
+            list.add(triplet.c);
+            return list;
+        }).collect(Collectors.toList());
+    }
+
+    private static class Triplet implements Comparable<Triplet> {
+        int a;
+        int b;
+        int c;
+
+        Triplet(int a, int b, int c) {
+            this.a = Math.min(a, Math.min(b, c));
+            this.c = Math.max(a, Math.max(b, c));
+            this.b = a + b + c - this.a - this.c;
         }
-        Collections.sort(draft, Comparator.comparingInt((List<Integer> list) -> list.get(0)).thenComparingInt(
-                list -> list.get(1)).thenComparingInt(list -> list.get(2)));
-        result.add(draft.pollFirst());
-        while (!draft.isEmpty()) {
-            List<Integer> list = draft.pollFirst();
-            List<Integer> prev = result.peekLast();
-            for (int i = 0; i < 3; i++) {
-                if (list.get(i) != prev.get(i)) {
-                    result.add(list);
-                    break;
-                }
+
+        @Override
+        public boolean equals(Object other) {
+            if (!(other instanceof Triplet)) {
+                return false;
             }
+            return a == ((Triplet) other).a && b == ((Triplet) other).b && c == ((Triplet) other).c;
         }
-        return result;
+
+        @Override
+        public int hashCode() {
+            return (a + b + c) % 2089;
+        }
+
+        @Override
+        public int compareTo(Triplet other) {
+            int diff = Integer.compare(a, other.a);
+            if (diff != 0) {
+                return diff;
+            }
+            diff = Integer.compare(b, other.b);
+            if (diff != 0) {
+                return diff;
+            }
+            return Integer.compare(c, other.c);
+        }
     }
 }

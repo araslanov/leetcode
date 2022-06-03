@@ -22,10 +22,10 @@ public class Solution15Test {
 
         assertEquals(2, result.size());
         assertEquals(-1, (int) result.get(0).get(0));
-        assertEquals(-1, (int) result.get(0).get(1));
-        assertEquals(2, (int) result.get(0).get(2));
+        assertEquals(0, (int) result.get(0).get(1));
+        assertEquals(1, (int) result.get(0).get(2));
         assertEquals(-1, (int) result.get(1).get(0));
-        assertEquals(0, (int) result.get(1).get(1));
-        assertEquals(1, (int) result.get(1).get(2));
+        assertEquals(-1, (int) result.get(1).get(1));
+        assertEquals(2, (int) result.get(1).get(2));
     }
 }
