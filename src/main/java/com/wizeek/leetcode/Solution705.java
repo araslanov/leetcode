@@ -3,7 +3,9 @@ package com.wizeek.leetcode;
 import java.util.LinkedList;
 
 public class Solution705 {
-    private final LinkedList<Integer>[] buckets = new LinkedList[16];
+    private static final int BUCKET_SIZE = 2089;
+
+    private final LinkedList<Integer>[] buckets = new LinkedList[BUCKET_SIZE];
 
     public Solution705() {
     }
@@ -12,7 +14,7 @@ public class Solution705 {
         if (contains(key)) {
             return;
         }
-        int bucket = key % 16;
+        int bucket = key % BUCKET_SIZE;
         if (buckets[bucket] == null) {
             buckets[bucket] = new LinkedList<>();
         }
@@ -23,12 +25,12 @@ public class Solution705 {
         if (!contains(key)) {
             return;
         }
-        int bucket = key % 16;
+        int bucket = key % BUCKET_SIZE;
         buckets[bucket].remove(Integer.valueOf(key));
     }
 
     public boolean contains(int key) {
-        int bucket = key % 16;
+        int bucket = key % BUCKET_SIZE;
         if (buckets[bucket] == null) {
             return false;
         }
