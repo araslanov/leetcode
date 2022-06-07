@@ -1,9 +1,6 @@
 package com.wizeek.leetcode;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Solution380 {
     private final Map<Integer, Integer> valueToIndex = new HashMap<>();
@@ -37,7 +34,7 @@ public class Solution380 {
     }
 
     public int getRandom() {
-        int index = (int) (valueToIndex.size() * Math.random());
+        int index = new Random().nextInt(indexToValue.size());
         return indexToValue.get(index);
     }
 }
