@@ -26,6 +26,9 @@ public class Solution244 {
             int left = leftIndexes.get(i);
             int right = rightIndexes.get(j);
             min = Math.min(min, Math.abs(left - right));
+            if (min == 1) {
+                return min;
+            }
             if (left < right) {
                 i++;
             } else {
