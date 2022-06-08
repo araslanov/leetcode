@@ -8,9 +8,7 @@ public class Solution1512 {
         }
         int sum = 0;
         for (int c : count) {
-            if (c > 1) {
-                sum += c * (c - 1) / 2;
-            }
+            sum += c * (c - 1) / 2;
         }
         return sum;
     }
