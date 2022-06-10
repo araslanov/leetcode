@@ -4,9 +4,15 @@ import java.util.*;
 
 public class Solution314_2 {
     public List<List<Integer>> verticalOrder(TreeNode root) {
-        Map<Integer, List<Integer>> map = new TreeMap<>();
+        List<List<Integer>> result = new LinkedList<>();
+        if (root == null) {
+            return result;
+        }
+        Map<Integer, List<Integer>> map = new HashMap<>();
         Queue<Pair> queue = new LinkedList<>();
         queue.offer(new Pair(0, root));
+        int min = 0;
+        int max = 0;
         while (!queue.isEmpty()) {
             Pair pair = queue.poll();
             int order = pair.order;
@@ -14,13 +20,14 @@ public class Solution314_2 {
             if (node == null) {
                 continue;
             }
+            min = Math.min(min, order);
+            max = Math.max(max, order);
             map.computeIfAbsent(order, key -> new LinkedList<>()).add(node.val);
             queue.offer(new Pair(order - 1, node.left));
             queue.offer(new Pair(order + 1, node.right));
         }
-        List<List<Integer>> result = new LinkedList<>();
-        for (Map.Entry<Integer, List<Integer>> entry : map.entrySet()) {
-            result.add(entry.getValue());
+        for (int i = min; i <= max; i++) {
+            result.add(map.get(i));
         }
         return result;
     }

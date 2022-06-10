@@ -53,4 +53,11 @@ public class Solution314_2Test {
         assertEquals(8, (int) result.get(3).get(0));
         assertEquals(2, (int) result.get(3).get(1));
     }
+
+    @Test
+    public void test3() {
+        List<List<Integer>> result = solution.verticalOrder(null);
+
+        assertEquals(0, result.size());
+    }
 }
