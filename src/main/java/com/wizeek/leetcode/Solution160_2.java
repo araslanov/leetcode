@@ -4,26 +4,19 @@ public class Solution160_2 {
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
         ListNode a0 = headA;
         ListNode b0 = headB;
-        boolean loopedA = false;
-        boolean loopedB = false;
-        while (headA != null || headB != null) {
-            if (headA == headB) {
-                return headA;
-            }
-            if (headA == null && !loopedA) {
+        while (headA != headB) {
+            if (headA == null) {
                 headA = b0;
-                loopedA = true;
-            } else if (headA != null) {
+            } else {
                 headA = headA.next;
             }
-            if (headB == null && !loopedB) {
+            if (headB == null) {
                 headB = a0;
-                loopedB = true;
-            } else if (headB != null) {
+            } else {
                 headB = headB.next;
             }
         }
-        return null;
+        return headA;
     }
 
     public static class ListNode {
