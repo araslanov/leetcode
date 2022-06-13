@@ -3,25 +3,37 @@ package com.wizeek.leetcode;
 import java.util.Random;
 
 public class Solution528 {
-    private final int[] w;
+    private final int[] sums;
     private int sum;
 
     public Solution528(int[] w) {
-        this.w = w;
-        for (int i : w) {
-            sum += i;
+        int n = w.length;
+        sums = new int[n];
+        for (int i = 0; i < n; i++) {
+            sum += w[i];
+            sums[i] = sum;
         }
     }
 
     public int pickIndex() {
         int r = new Random().nextInt(sum);
-        int sum = 0;
-        for (int i = 0; i < w.length; i++) {
-            sum += w[i];
-            if (sum > r) {
-                return i;
+        return binarySearch(r);
+    }
+
+    private int binarySearch(int r) {
+        int left = 0;
+        int right = sums.length;
+        while (left < right) {
+            int pivot = left + (right - left) / 2;
+            int value = sums[pivot];
+            if (value == r) {
+                return pivot + 1;
+            } else if (value < r) {
+                left = pivot + 1;
+            } else {
+                right = pivot;
             }
         }
-        return w.length - 1;
+        return right;
     }
 }
