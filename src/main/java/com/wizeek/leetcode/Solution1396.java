@@ -21,6 +21,7 @@ public class Solution1396 {
         int time = t - checkIn.time;
         average.average = (average.average * average.n + time) / (average.n + 1);
         average.n += 1;
+        checkIns.remove(id);
     }
 
     public double getAverageTime(String startStation, String endStation) {
