@@ -3,6 +3,8 @@ package com.wizeek.leetcode;
 import org.junit.Before;
 import org.junit.Test;
 
+import static org.junit.Assert.assertEquals;
+
 public class Solution1396Test {
 
     private Solution1396 solution;
@@ -20,11 +22,11 @@ public class Solution1396Test {
         solution.checkOut(45, "Waterloo", 15);
         solution.checkOut(27, "Waterloo", 20);
         solution.checkOut(32, "Cambridge", 22);
-        solution.getAverageTime("Paradise", "Cambridge");
-        solution.getAverageTime("Leyton", "Waterloo");
+        assertEquals(14, solution.getAverageTime("Paradise", "Cambridge"), 0.00001);
+        assertEquals(11, solution.getAverageTime("Leyton", "Waterloo"), 0.00001);
         solution.checkIn(10, "Leyton", 24);
-        solution.getAverageTime("Leyton", "Waterloo");
+        assertEquals(11, solution.getAverageTime("Leyton", "Waterloo"), 0.00001);
         solution.checkOut(10, "Waterloo", 38);
-        solution.getAverageTime("Leyton", "Waterloo");
+        assertEquals(12, solution.getAverageTime("Leyton", "Waterloo"), 0.00001);
     }
 }
