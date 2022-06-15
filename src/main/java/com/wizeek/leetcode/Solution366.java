@@ -5,26 +5,22 @@ import java.util.List;
 
 public class Solution366 {
     public List<List<Integer>> findLeaves(TreeNode root) {
-        LinkedList<Integer>[] nodes = new LinkedList[100];
-        int max = dfs(nodes, root);
         List<List<Integer>> result = new LinkedList();
-        for (int i = 0; i <= max; i++) {
-            result.add(nodes[i]);
-        }
+        dfs(result, root);
         return result;
     }
 
-    private int dfs(LinkedList<Integer>[] nodes, TreeNode node) {
+    private int dfs(List<List<Integer>> nodes, TreeNode node) {
         if (node == null) {
             return -1;
         }
         int left = dfs(nodes, node.left);
         int right = dfs(nodes, node.right);
         int current = Math.max(left, right) + 1;
-        if (nodes[current] == null) {
-            nodes[current] = new LinkedList<>();
+        if (nodes.size() == current) {
+            nodes.add(new LinkedList<>());
         }
-        nodes[current].add(node.val);
+        nodes.get(current).add(node.val);
         return current;
     }
 
