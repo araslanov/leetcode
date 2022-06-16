@@ -1,22 +1,24 @@
 package com.wizeek.leetcode;
 
 public class Solution1356 {
+    private int[] arr;
+
     public int[] sortByBits(int[] arr) {
-        quicksort(arr, 0, arr.length - 1);
+        this.arr = arr;
+        quicksort(0, arr.length - 1);
         return arr;
     }
 
-    private void quicksort(int[] arr, int left, int right) {
-        int pivotIndex = partition(arr, left, right);
-        if (pivotIndex > left) {
-            quicksort(arr, left, pivotIndex - 1);
+    private void quicksort(int left, int right) {
+        if (left > right) {
+            return;
         }
-        if (pivotIndex < right) {
-            quicksort(arr, pivotIndex + 1, right);
-        }
+        int pivotIndex = partition(left, right);
+        quicksort(left, pivotIndex - 1);
+        quicksort(pivotIndex + 1, right);
     }
 
-    private int partition(int[] arr, int left, int right) {
+    private int partition(int left, int right) {
         int pivot = arr[left];
         int prev = right;
         for (int i = right; i >= left; i--) {
