@@ -13,10 +13,12 @@ public class Solution394 {
             } else if (c == '[') {
                 int score = 1;
                 StringBuilder current = new StringBuilder();
+                boolean nested = false;
                 while (score > 0) {
                     i++;
                     char b = s.charAt(i);
                     if (b == '[') {
+                        nested = true;
                         score++;
                     } else if (b == ']') {
                         score--;
@@ -25,8 +27,9 @@ public class Solution394 {
                         current.append(b);
                     }
                 }
+                String sub = nested ? decodeString(current.toString()) : current.toString();
                 for (int j = 0; j < number; j++) {
-                    result.append(decodeString(current.toString()));
+                    result.append(sub);
                 }
                 number = 0;
             } else {
