@@ -41,4 +41,11 @@ public class Solution31Test {
         solution.nextPermutation(array);
         assertArrayEquals(new int[]{1, 2, 2, 0, 0, 3}, array);
     }
+
+    @Test
+    public void test5() {
+        int[] array = new int[]{2, 3, 1, 3, 3};
+        solution.nextPermutation(array);
+        assertArrayEquals(new int[]{2, 3, 3, 1, 3}, array);
+    }
 }
