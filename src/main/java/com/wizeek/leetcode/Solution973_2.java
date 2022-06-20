@@ -14,11 +14,11 @@ public class Solution973_2 {
     private void quickSelect(int k) {
         int left = 0;
         int right = points.length - 1;
-        int pivot = -1;
-        while (pivot != k - 1) {
+        int pivot = points.length;
+        while (pivot != k) {
             pivot = partition(left, right);
-            if (pivot < k - 1) {
-                left = pivot + 1;
+            if (pivot < k) {
+                left = pivot;
             } else {
                 right = pivot - 1;
             }
@@ -26,17 +26,21 @@ public class Solution973_2 {
     }
 
     private int partition(int left, int right) {
-        int pivotIndex = left;
+        int pivotIndex = left + (right - left) / 2;
         int[] pivotValue = points[pivotIndex];
-        int prev = right;
-        for (int i = right; i >= left; i--) {
-            if (distance(pivotValue) < distance(points[i])) {
-                swap(prev, i);
-                prev--;
+        int pivotDist = distance(pivotValue);
+        while (left < right) {
+            if (distance(points[left]) >= pivotDist) {
+                swap(left, right);
+                right--;
+            } else {
+                left++;
             }
         }
-        swap(pivotIndex, prev);
-        return prev;
+        if (distance(points[left]) < pivotDist) {
+            left++;
+        }
+        return left;
     }
 
     private void swap(int i, int j) {

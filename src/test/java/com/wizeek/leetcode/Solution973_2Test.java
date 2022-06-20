@@ -32,6 +32,11 @@ public class Solution973_2Test {
 
     @Test
     public void test4() {
-        assertArrayEquals(new int[][]{{1, 0}, {0, 1}}, solution.kClosest(new int[][]{{0, 1}, {1, 0}}, 2));
+        assertArrayEquals(new int[][]{{0, 1}, {1, 0}}, solution.kClosest(new int[][]{{0, 1}, {1, 0}}, 2));
+    }
+
+    @Test
+    public void test5() {
+        assertArrayEquals(new int[][]{{2, -2}, {-2, 2}}, solution.kClosest(new int[][]{{1, 3}, {-2, 2}, {2, -2}}, 2));
     }
 }
