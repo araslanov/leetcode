@@ -29,4 +29,9 @@ public class Solution973_2Test {
         assertArrayEquals(new int[][]{{1, 1}},
                 solution.kClosest(new int[][]{{2, 2}, {2, 2}, {2, 2}, {2, 2}, {2, 2}, {2, 2}, {1, 1}}, 1));
     }
+
+    @Test
+    public void test4() {
+        assertArrayEquals(new int[][]{{1, 0}, {0, 1}}, solution.kClosest(new int[][]{{0, 1}, {1, 0}}, 2));
+    }
 }
