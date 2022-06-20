@@ -23,8 +23,8 @@ public class Solution973 {
     }
 
     private int compare(int[] a, int[] b) {
-        double left = Math.sqrt(a[0] * a[0] + a[1] * a[1]);
-        double right = Math.sqrt(b[0] * b[0] + b[1] * b[1]);
+        long left = a[0] * a[0] + a[1] * a[1];
+        long right = b[0] * b[0] + b[1] * b[1];
         return left < right ? 1 : -1;
     }
 }
