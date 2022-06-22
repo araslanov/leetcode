@@ -26,7 +26,7 @@ public class Solution347_2Test {
 
     @Test
     public void test3() {
-        assertArrayEquals(new int[]{2, 1}, solution.topKFrequent(new int[]{1, 2}, 2));
+        assertArrayEquals(new int[]{1, 2}, solution.topKFrequent(new int[]{1, 2}, 2));
     }
 
     @Test
