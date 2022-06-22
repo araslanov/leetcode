@@ -7,6 +7,9 @@ import java.util.Map;
 
 public class Solution347_2 {
     public int[] topKFrequent(int[] nums, int k) {
+        if (nums.length == k) {
+            return nums;
+        }
         Map<Integer, Integer> count = new HashMap<>();
         for (int num : nums) {
             count.put(num, count.getOrDefault(num, 0) + 1);
