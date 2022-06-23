@@ -1,24 +1,10 @@
 package com.wizeek.leetcode;
 
-import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 
 public class Solution17 {
-    private static final Map<Integer, String> map;
-
-    static {
-        map = new HashMap<>();
-        map.put(2, "abc");
-        map.put(3, "def");
-        map.put(4, "ghi");
-        map.put(5, "jkl");
-        map.put(6, "mno");
-        map.put(7, "pqrs");
-        map.put(8, "tuv");
-        map.put(9, "wxyz");
-    }
+    private static final String[] mapping = new String[]{"", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
 
     public List<String> letterCombinations(String digits) {
         List<String> result = new LinkedList<>();
@@ -36,7 +22,7 @@ public class Solution17 {
             return;
         }
         Integer digit = Integer.parseInt("" + digits.charAt(i));
-        String chars = map.get(digit);
+        String chars = mapping[digit];
         int l = chars.length();
         for (int j = 0; j < l; j++) {
             char c = chars.charAt(j);
